@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
           rel="stylesheet" 
-          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
           crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+          rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <style>
+        html {
+          scroll-behavior: smooth;
+        }
+        section {
+          padding-top: 80px; 
+          margin-top: -80px;
+        }
+        img {
+            transition: transform 0.3s ease-in-out;
+            cursor: zoom-in; 
+        }
+        .hero img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .card img:hover {
+            transform: scale(1.05);
+        }
+        .card {
+            overflow: hidden; 
+        }
+
+        section h2 {
+            margin-bottom: 40px !important;
+        }
+      </style>
 </head>
 <body> 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -22,21 +50,27 @@
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="hero">
+    <section id="home" class="hero mt-5 pt-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
                     <h1 class="display-4">Hi, I'm Angelo 👋</h1>
                     <p class="lead">A Beginner Web Developer</p>
-                    <a href="#projects" class="btn btn-light btn-lg mt-3">View My Work</a>
+                    <a href="#projects" class="btn btn-dark btn-lg mt-3">View My Work</a>
                 </div>
-                <div class="col-md-6 text-center">
-                    <img src="images/Cute Yellow Creature.jfif" class="img-fluid border border-light rounded" style="max-width:350px;" alt="Profile">
+                <div class="col-md-6 text-center mt-4 mt-md-0">
+                    <img src="images/Cute Yellow Creature.jfif" 
+                         class="img-fluid border border-secondary rounded-circle shadow bg-white" 
+                         style="width: 250px; height: 250px; object-fit: contain;" 
+                         alt="Profile"
+                         onclick="showImage(this)">
                 </div>
             </div>
         </div>
@@ -45,25 +79,24 @@
     <section id="services" class="section-padding mt-5">
         <div class="container">
             <h2 class="text-center mb-5">My Services</h2>
-            <div class="row text-center">
+            <div class="row text-center g-4"> 
                 <div class="col-md-4">
-                    <div class="card p-4">
-                    <img src="images/image1.jfif" class="card-img-top" alt="Project Image">
+                    <div class="card p-4 h-100"> 
+                        <img src="images/image1.jfif" class="card-img-top mb-3 rounded" alt="Web Design" style="height: 350px; object-fit: cover;" onclick="showImage(this)">
                         <h4>Web Design</h4>
                         <p>Simple and clean website designs.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card p-4">
-                    <img src="images/image2.jfif" class="card-img-top" alt="Project Image">
+                    <div class="card p-4 h-100">
+                        <img src="images/image2.jfif" class="card-img-top mb-3 rounded" alt="Frontend Dev" style="height: 350px; object-fit: cover;" onclick="showImage(this)">
                         <h4>Frontend Development</h4>
                         <p>Responsive layouts using Bootstrap.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card p-4">                   
-                    <img src="images/image3.jfif" class="card-img-top" alt="Project Image">
-
+                    <div class="card p-4 h-100">                  
+                        <img src="images/image3.jfif" class="card-img-top mb-3 rounded" alt="Student Projects" style="height: 350px; object-fit: cover;" onclick="showImage(this)">
                         <h4>Student Projects</h4>
                         <p>Beginner-friendly web projects.</p>
                     </div>
@@ -72,66 +105,170 @@
         </div>
     </section>
 
-   <section id="projects" class="section-padding bg-light mt-5">
+<section id="certifications" class="section-padding bg-light mt-5 py-5">
     <div class="container">
-        <h2 class="text-center mb-5">My Projects</h2>
-        <div class="row">
+        <h2 class="text-center mb-5">Certifications</h2>
+        <div class="row text-center g-4">
             <div class="col-md-4">
-                <div class="card">
-                    <img src="images/nailong.jfif" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
-                        <h5>Login System</h5>
-                        <p>Simple login page.</p>
+                <div class="card p-4 h-100">
+                    <div style="height: 200px;" class="d-flex align-items-center justify-content-center bg-light rounded mb-3">
+                        <img src="images/Coding for data.jpg" class="img-fluid rounded" alt="Coding for Data" style="max-height: 100%; object-fit: contain;" onclick="showImage(this)">
                     </div>
+                    <i class="bi bi-award fs-1 text-primary mb-3"></i>
+                    <h5>Coding for Data</h5>
+                    <p>Basic Python Fundamentals</p>
                 </div>
             </div>
-
             <div class="col-md-4">
-                <div class="card">
-                    <img src="images/nailong2.jfif" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
-                        <h5>Login System</h5>
-                        <p>Simple login page.</p>
-                    </div>
+                <div class="card p-4 h-100 pt-5">
+                     <i class="bi bi-shield-lock fs-1 text-primary mb-3 mt-4"></i>
+                    <h5>Web Development Basics</h5>
+                    <p>HTML, CSS, and Bootstrap fundamentals</p>
                 </div>
             </div>
-
             <div class="col-md-4">
-                <div class="card">
-                    <img src="images/nailong3.jfif" class="card-img-top" alt="Project Image">
-                    <div class="card-body">
-                        <h5>Login System</h5>
-                        <p>Simple login page.</p>
+                <div class="card p-4 h-100">
+                     <div style="height: 200px;" class="d-flex align-items-center justify-content-center bg-light rounded mb-3">
+                        <img src="images/Python Developer.jpg" class="img-fluid rounded" alt="Python Developer" style="max-height: 100%; object-fit: contain;" onclick="showImage(this)">
                     </div>
+                    <i class="bi bi-award fs-1 text-primary mb-3"></i>
+                    <h5>Python Developer</h5>
+                    <p>Computer systems and Python basics</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<section id="education" class="section-padding mt-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Education</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4 text-center shadow-sm">
+                    <h4>Bachelor of Science in Information Technology</h4>
+                    <p class="mb-1 fs-5"><strong>University of Mindanao - Matina Campus/ College of Computing Education</strong></p>
+                    <p class="text-muted">2024 – Present</p>
+                    <p>
+                        Focused on web development, programming fundamentals,
+                        and information security concepts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="contact" class="section-padding mt-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Contact Me</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
+<section id="projects" class="section-padding bg-light mt-5 py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">My Projects</h2>
+      <div class="row g-4">
+  
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/nailong.jfif" class="card-img-top" alt="Login System" style="height: 350px; object-fit: cover;" onclick="showImage(this)">
+            <div class="card-body d-flex flex-column">
+              <h5>Login System</h5>
+              <p>Simple login page dashboard concept.</p>
+              <a href="https://github.com/angelorosales055/Rosales-login_dashboard-it9" 
+                 target="_blank" class="btn btn-dark mt-auto">View Project</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/nailong2.jfif" class="card-img-top" alt="Hotel System" style="height: 350px; object-fit: cover;" onclick="showImage(this)">
+            <div class="card-body d-flex flex-column">
+              <h5>Hotel Room Reservation</h5>
+              <p>A system for booking hotel rooms and services.</p>
+              <a href="#" 
+                 class="btn btn-dark mt-auto">View Project</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/nailong3.jfif" class="card-img-top" alt="Library System" style="height: 350px; object-fit: cover;" onclick="showImage(this)">
+            <div class="card-body d-flex flex-column">
+              <h5>Library Management System</h5>
+              <p>An application to manage books and borrowing.</p>
+               <a href="#" 
+                 class="btn btn-dark mt-auto">View Project</a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+</section>
+  
+<section id="contact" class="section-padding mt-5 mb-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Contact Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card p-4 shadow">
                     <form>
-                        <input type="text" class="form-control mb-3" placeholder="Name">
-                        <input type="email" class="form-control mb-3" placeholder="Email">
-                        <textarea class="form-control mb-3" rows="4" placeholder="Message"></textarea>
-                        <button class="btn btn-primary w-100">Send</button>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="How can I help you?"></textarea>
+                        </div>
+                        <button class="btn btn-primary w-100">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="text-center py-4 bg-dark text-white mt-5">
+<footer class="text-center py-4 bg-dark text-white">
+    <div class="container">
+        <div class="mb-3">
+            <a href="#" class="text-white me-3 fs-4"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3 fs-4"><i class="bi bi-github"></i></a>
+            <a href="#" class="text-white me-3 fs-4"><i class="bi bi-linkedin"></i></a>
+            <a href="mailto:your@email.com" class="text-white fs-4"><i class="bi bi-envelope-fill"></i></a>
+        </div>
         <p class="mb-0">© 2026 Angelo | All Rights Reserved</p>
-    </footer>
+    </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1Dh1J6kBxKuX3Q1Z1Z1ZT+7C1i1zj7l9+8nbTov4+1p" 
-            crossorigin="anonymous"></script>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body text-center position-relative">
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+        <img id="previewImage" src="" class="img-fluid rounded shadow-lg" alt="Preview">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+        crossorigin="anonymous"></script>
+
+<script>
+    function showImage(element) {
+        var imageSrc = element.src;
+        
+        document.getElementById('previewImage').src = imageSrc;
+        
+
+        var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        myModal.show();
+    }
+</script>
+
 </body>
 </html>
